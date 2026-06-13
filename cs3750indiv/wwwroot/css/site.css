@@ -1,31 +1,236 @@
+/* ── Design Tokens ───────────────────────────────── */
+:root {
+  --le-bg:           #FFFFFF;
+  --le-surface:      #F7F6F4;
+  --le-border:       #EAE7E2;
+  --le-text:         #1A1A1A;
+  --le-muted:        #8A8580;
+  --le-primary:      #D6336C;
+  --le-primary-dark: #B8295A;
+  --le-success:      #0E8C7A;
+
+  --le-font-heading: 'Playfair Display', Georgia, serif;
+  --le-font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+  --le-radius-sm: 6px;
+  --le-radius-md: 10px;
+  --le-radius-lg: 14px;
+
+  --le-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --le-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+/* ── Base ────────────────────────────────────────── */
 html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
+  font-size: 16px;
   position: relative;
   min-height: 100%;
 }
 
 body {
+  font-family: var(--le-font-body);
+  background-color: var(--le-bg);
+  color: var(--le-text);
   margin-bottom: 60px;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--le-font-heading);
+  color: var(--le-text);
+  font-weight: 700;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+a {
+  color: var(--le-primary);
+}
+
+a:hover {
+  color: var(--le-primary-dark);
+}
+
+.text-muted {
+  color: var(--le-muted) !important;
+}
+
+/* ── Navbar ──────────────────────────────────────── */
+.le-navbar {
+  background: var(--le-bg);
+  border-bottom: 1px solid var(--le-border);
+  box-shadow: var(--le-shadow-sm);
+}
+
+.le-navbar .navbar-brand {
+  font-family: var(--le-font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--le-primary) !important;
+  letter-spacing: -0.02em;
+}
+
+.le-navbar .nav-link {
+  color: var(--le-text) !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.le-navbar .nav-link:hover {
+  color: var(--le-primary) !important;
+}
+
+/* ── Buttons ─────────────────────────────────────── */
+.btn-primary {
+  background-color: var(--le-primary);
+  border-color: var(--le-primary);
+  color: #fff;
+  border-radius: var(--le-radius-md);
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: var(--le-primary-dark);
+  border-color: var(--le-primary-dark);
+  color: #fff;
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(214, 51, 108, 0.35);
+}
+
+.btn-outline-primary {
+  color: var(--le-primary);
+  border-color: var(--le-primary);
+  border-radius: var(--le-radius-md);
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--le-primary);
+  border-color: var(--le-primary);
+  color: #fff;
+}
+
+.btn-link {
+  color: var(--le-primary);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  color: var(--le-primary-dark);
+  text-decoration: underline;
+}
+
+/* ── Form controls ───────────────────────────────── */
+.form-control,
+.form-select {
+  border-color: var(--le-border);
+  border-radius: var(--le-radius-sm);
+  color: var(--le-text);
+  background-color: var(--le-bg);
+  padding: 0.55rem 0.85rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--le-primary);
+  box-shadow: 0 0 0 0.2rem rgba(214, 51, 108, 0.15);
+  background-color: var(--le-bg);
+}
+
+.form-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--le-text);
+  margin-bottom: 0.35rem;
+}
+
+/* ── Cards ───────────────────────────────────────── */
+.le-card {
+  background: var(--le-surface);
+  border: 1px solid var(--le-border);
+  border-radius: var(--le-radius-lg);
+  padding: 2rem;
+  box-shadow: var(--le-shadow-sm);
+}
+
+/* ── Alerts ──────────────────────────────────────── */
+.alert-success {
+  background-color: rgba(14, 140, 122, 0.1);
+  border-color: rgba(14, 140, 122, 0.3);
+  color: var(--le-success);
+  border-radius: var(--le-radius-md);
+}
+
+.alert-danger {
+  background-color: rgba(214, 51, 108, 0.08);
+  border-color: rgba(214, 51, 108, 0.25);
+  color: var(--le-primary-dark);
+  border-radius: var(--le-radius-md);
+}
+
+/* ── Focus ring (global) ─────────────────────────── */
+.btn:focus, .btn:active:focus,
+.form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(214, 51, 108, 0.25);
+}
+
+/* ── Auth pages (Login / Register) ──────────────── */
+.le-auth-page {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.le-auth-card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--le-surface);
+  border: 1px solid var(--le-border);
+  border-radius: var(--le-radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--le-shadow-md);
+}
+
+.le-auth-card h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.le-auth-subtitle {
+  color: var(--le-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.75rem;
+}
+
+.le-auth-footer {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--le-muted);
+}
+
+/* ── Footer ──────────────────────────────────────── */
+.le-footer {
+  background: var(--le-surface);
+  border-top: 1px solid var(--le-border);
+  color: var(--le-muted);
+  font-size: 0.875rem;
+  padding: 1rem 0;
+}
+
+.le-footer a {
+  color: var(--le-muted);
+  text-decoration: none;
+}
+
+.le-footer a:hover {
+  color: var(--le-primary);
 }
