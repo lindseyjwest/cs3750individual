@@ -48,7 +48,7 @@ public class RegisterModel(AppDbContext db) : PageModel
         {
             FullName = Input.FullName,
             Email = Input.Email,
-            PhoneNumber = Input.PhoneNumber,
+            Phone = Input.PhoneNumber,
         };
         user.PasswordHash = hasher.HashPassword(user, Input.Password);
 
