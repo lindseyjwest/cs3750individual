@@ -16,13 +16,18 @@ BEGIN TRY
 
 -- ============================================================
 -- 1. Users — Disney characters
+--
+--    Password for every seeded user is: Password123!
+--    Hashes below are real ASP.NET Core Identity PasswordHasher<T>
+--    (v3, PBKDF2-HMAC-SHA256) output — NOT placeholder text — so
+--    Login.cshtml.cs's VerifyHashedPassword call succeeds.
 -- ============================================================
 INSERT INTO app_users (full_name, email, phone, password) VALUES
-    ('Mickey Mouse', 'mickey.mouse@localeats.com', '(407) 555-0101', 'hashed_password_1'),
-    ('Minnie Mouse', 'minnie.mouse@localeats.com', '(407) 555-0102', 'hashed_password_2'),
-    ('Donald Duck',  'donald.duck@localeats.com',  '(407) 555-0103', 'hashed_password_3'),
-    ('Goofy Goof',   'goofy.goof@localeats.com',   '(407) 555-0104', 'hashed_password_4'),
-    ('Daisy Duck',   'daisy.duck@localeats.com',   '(407) 555-0105', 'hashed_password_5');
+    ('Mickey Mouse', 'mickey.mouse@localeats.com', '(407) 555-0101', 'AQAAAAIAAYagAAAAEKafhxXghoKWtnuN4xJmTA+hpiCwzDaHyhUvrQQWL0XzBgH0af/mD30Pjfm2Sg3bqg=='),
+    ('Minnie Mouse', 'minnie.mouse@localeats.com', '(407) 555-0102', 'AQAAAAIAAYagAAAAEA8Mz4VTNg/CkuMrBrqaUEcfYxuOKoYv+4IRtMmg6tFR7F5QNvTyGjZwILirHbVTQA=='),
+    ('Donald Duck',  'donald.duck@localeats.com',  '(407) 555-0103', 'AQAAAAIAAYagAAAAENnrzd3lv7OAUQOY2QrKRnxzTPUjJsH7if7ONfAb92m+py1T8dxiwWUTi3KOylP4Xw=='),
+    ('Goofy Goof',   'goofy.goof@localeats.com',   '(407) 555-0104', 'AQAAAAIAAYagAAAAEEEmZ0UC0EYtzfuoxmgJkoS3ZksnRVOPYKw83ajeMk+TeTZpo3QEtlmkINsetiBivw=='),
+    ('Daisy Duck',   'daisy.duck@localeats.com',   '(407) 555-0105', 'AQAAAAIAAYagAAAAEN1QYsbbx9rtJJTnJ33YIggWwQ6NsCFTuyo9ObTtcuyWWrPMvYbtGqrVCHOGrgm7Eg==');
 
 -- ============================================================
 -- 2. Menu Categories
