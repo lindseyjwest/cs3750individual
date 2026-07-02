@@ -13,7 +13,6 @@ public class LoginModel(AppDbContext db) : PageModel
     [BindProperty]
     public InputModel Input { get; set; } = new();
 
-    public string? WelcomeMessage { get; set; }
     public string? ErrorMessage { get; set; }
 
     public class InputModel
@@ -53,9 +52,8 @@ public class LoginModel(AppDbContext db) : PageModel
             return Page();
         }
 
-        WelcomeMessage = $"Welcome back, {user.FullName}!";
-        ModelState.Clear();
-        Input = new InputModel();
-        return Page();
+        HttpContext.Session.SetInt32("UserId", user.UserId);
+        HttpContext.Session.SetString("UserName", user.FullName);
+        return RedirectToPage("/Menu");
     }
 }

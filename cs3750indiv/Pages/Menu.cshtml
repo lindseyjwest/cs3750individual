@@ -1,0 +1,47 @@
+@page
+@model cs3750indiv.Pages.MenuModel
+@{
+    ViewData["Title"] = "My Menu";
+    Layout = "_Layout";
+}
+
+<div class="le-menu-header mb-4">
+    <h2>Welcome back, @Model.UserName!</h2>
+    <p class="text-muted">Here are the menu items available to you.</p>
+</div>
+
+@if (Model.MenuItems.Count == 0)
+{
+    <div class="alert alert-info">No menu items have been assigned to your account yet.</div>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @foreach (var item in Model.MenuItems)
+        {
+            <div class="col">
+                <div class="le-menu-card">
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="@item.ImageUrl" alt="@item.ItemName" class="le-menu-card-img" />
+                    }
+                    else
+                    {
+                        <div class="le-menu-card-img-placeholder">
+                            <span>No Image</span>
+                        </div>
+                    }
+                    <div class="le-menu-card-body">
+                        <span class="le-menu-badge">@item.Category.CategoryName</span>
+                        <h5 class="le-menu-card-title">@item.ItemName</h5>
+                        @if (!string.IsNullOrEmpty(item.ItemDescription))
+                        {
+                            <p class="le-menu-card-desc">@item.ItemDescription</p>
+                        }
+                        <div class="le-menu-card-price">$@item.Price.ToString("0.00")</div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

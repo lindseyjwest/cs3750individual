@@ -217,6 +217,83 @@ a:hover {
   color: var(--le-muted);
 }
 
+/* ── Menu page ───────────────────────────────────── */
+.le-menu-header h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.le-menu-card {
+  background: var(--le-surface);
+  border: 1px solid var(--le-border);
+  border-radius: var(--le-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--le-shadow-sm);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.15s ease;
+}
+
+.le-menu-card:hover {
+  box-shadow: var(--le-shadow-md);
+}
+
+.le-menu-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.le-menu-card-img-placeholder {
+  width: 100%;
+  height: 180px;
+  background: var(--le-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--le-muted);
+  font-size: 0.875rem;
+}
+
+.le-menu-card-body {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.le-menu-badge {
+  display: inline-block;
+  background: rgba(214, 51, 108, 0.1);
+  color: var(--le-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.le-menu-card-title {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.le-menu-card-desc {
+  font-size: 0.875rem;
+  color: var(--le-muted);
+  margin: 0;
+  flex: 1;
+}
+
+.le-menu-card-price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--le-primary);
+  margin-top: 0.25rem;
+}
+
 /* ── Footer ──────────────────────────────────────── */
 .le-footer {
   background: var(--le-surface);
